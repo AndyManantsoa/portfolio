@@ -71,7 +71,7 @@ export const Z_INDEX = {
 export const MICROCOPY = {
   landing: {
     hero: "Build it. Break it. Understand it.",
-    subtitle: "Software Developer × Cybersecurity Enthusiast",
+    subtitle: "Web Developer × Ethical Hacker",
     description:
       "I create web applications and understand how systems can be attacked, tested, and secured.",
   },

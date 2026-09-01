@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import React from "react";
+import { Code2 } from "lucide-react";
 import { MICROCOPY } from "@/lib/constants";
+import { ProfileImage } from "./ProfileImage";
 
 export function LandingHero() {
   const containerVariants = {
@@ -11,165 +14,95 @@ export function LandingHero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
   };
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-white px-4 py-32 dark:bg-slate-950 sm:px-6 lg:px-8"
+      className="relative min-h-screen overflow-hidden bg-white px-4 py-20 dark:bg-slate-950 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900" />
+      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 pt-8 lg:px-8 lg:pt-16">
+        {/* Two-column layout */}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* LEFT: Profile Image */}
+          <motion.div variants={itemVariants} className="order-2 lg:order-1">
+            <ProfileImage />
+          </motion.div>
 
-      <div className="relative mx-auto max-w-4xl text-center">
-        {/* Main hero text */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl"
-        >
-          Hi, I'm{" "}
-          <span className="text-blue-500 dark:text-emerald-400">Andy</span>
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 text-xl text-slate-600 dark:text-slate-400 sm:text-2xl"
-        >
-          {MICROCOPY.landing.subtitle}
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-4 max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-500"
-        >
-          {MICROCOPY.landing.description}
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-12 flex flex-col gap-4 sm:flex-row justify-center sm:gap-6"
-        >
-          <Link
-            href="/build"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-500 px-8 py-3 font-semibold text-white transition-all hover:bg-blue-600 hover:shadow-lg active:scale-95"
+          {/* RIGHT: Introduction */}
+          <motion.div
+            variants={containerVariants}
+            className="order-1 lg:order-2 space-y-6"
           >
-            Explore BUILD
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            href="/break"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-200 bg-transparent px-8 py-3 font-semibold text-slate-900 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-900"
-          >
-            Explore BREAK
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </motion.div>
+            <motion.div variants={itemVariants}>
+              <p className="text-sm font-semibold tracking-widest text-blue-600 dark:text-emerald-400">
+                ABOUT ME
+              </p>
+            </motion.div>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-6xl"
+            >
+              Hi, I'm Andy Manantsoa.
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-2xl font-semibold text-slate-700 dark:text-slate-300"
+            >
+              {MICROCOPY.landing.subtitle}
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+            >
+              {MICROCOPY.landing.description}
+            </motion.p>
+
+            {/* Technical details as metadata */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-3 pt-4"
+            >
+              {[
+                "Full-Stack Development",
+                "Web Penetration Testing",
+                "Network Security",
+                "Web Security",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-blue-100/50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
 
         {/* Scroll hint */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 flex justify-center"
+          className="mt-20 flex justify-center"
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
         >
-          <div className="text-sm text-slate-500 dark:text-slate-500">
-            ↓ Scroll to learn more
-          </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
-}
-
-export function LandingAbout() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  return (
-    <motion.section
-      className="bg-slate-50 px-4 py-20 dark:bg-slate-900 sm:px-6 lg:px-8"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-    >
-      <div className="mx-auto max-w-4xl">
-        <motion.h2
-          variants={itemVariants}
-          className="text-4xl font-bold text-slate-900 dark:text-white"
-        >
-          About Me
-        </motion.h2>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-8 grid gap-8 md:grid-cols-2"
-        >
-          <div>
-            <h3 className="text-lg font-semibold text-blue-500 dark:text-emerald-400">
-              I Build
-            </h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              I'm passionate about creating clean, performant, and user-focused
-              web applications. I use modern technologies and best practices to
-              turn ideas into reality.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-blue-500 dark:text-emerald-400">
-              I Understand
-            </h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              I study cybersecurity and security testing to understand how
-              systems can be attacked, tested, and secured. This makes me a more
-              thoughtful engineer.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-blue-500 dark:text-emerald-400">
-              I'm Learning
-            </h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Currently deepening my knowledge in security fundamentals,
-              penetration testing, and secure application architecture.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-blue-500 dark:text-emerald-400">
-              I Care About
-            </h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Engineering excellence, security-first thinking, clean code, and
-              continuous learning. I believe in building systems that are both
-              powerful and secure.
-            </p>
+          <div className="text-sm text-slate-500 dark:text-slate-400">
+            ↓ Scroll to explore
           </div>
         </motion.div>
       </div>
@@ -184,84 +117,124 @@ export function BuildBreakSelector() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    hover: { y: -10, transition: { duration: 0.3 } },
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6 },
+    },
   };
+
+  const paths = [
+    {
+      id: "build",
+      label: "BUILD",
+      tagline: "Design - Develop - Deploy",
+      description:
+        "Explore my projects, experience, and the technologies I use to build modern web or mobile applications.",
+      icon: Code2,
+      isImage: false,
+      href: "/build",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100 dark:from-blue-950 dark:to-slate-900",
+      textColor: "text-blue-600 dark:text-blue-400",
+      borderColor: "border-blue-200 dark:border-blue-900",
+    },
+    {
+      id: "break",
+      label: "BREAK",
+      tagline: "Analyze. Exploit. Secure.",
+      description:
+        "Discover my cybersecurity experience, labs, tools, and security research.",
+      isImage: true,
+      imageSrc: "/incognito.png",
+      href: "/break",
+      color: "from-emerald-500 to-emerald-600",
+      bgColor:
+        "from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-slate-900",
+      textColor: "text-emerald-600 dark:text-emerald-400",
+      borderColor: "border-emerald-200 dark:border-emerald-900",
+    },
+  ];
 
   return (
     <motion.section
-      className="px-4 py-20 sm:px-6 lg:px-8"
+      className="relative min-h-screen overflow-hidden bg-white dark:bg-slate-950"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="mx-auto max-w-6xl">
-        <motion.h2
-          variants={cardVariants}
-          className="text-center text-4xl font-bold text-slate-900 dark:text-white"
-        >
-          Choose Your Path
-        </motion.h2>
+      <div className="relative mx-auto h-full min-h-screen max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid h-full gap-8 lg:grid-cols-2 lg:gap-12">
+          {paths.map((path) => {
+            const PathIcon = path.icon;
+            return (
+              <motion.div
+                key={path.id}
+                variants={itemVariants}
+                className="group flex flex-col items-center justify-center space-y-8 rounded-3xl border-2 border-slate-200 bg-white/50 p-8 backdrop-blur-sm transition-all hover:border-slate-300 dark:border-slate-700 dark:bg-slate-900/50 dark:hover:border-slate-600 lg:p-12"
+              >
+                <Link href={path.href} className="w-full">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex w-full flex-col items-center justify-center space-y-8 focus:outline-none"
+                  >
+                    {/* Icon or Image */}
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                      className={`rounded-full bg-gradient-to-br ${path.color} p-8 shadow-xl flex items-center justify-center`}
+                    >
+                      {path.isImage ? (
+                        <Image
+                          src={path.imageSrc || "/incognito.png"}
+                          alt={path.label}
+                          width={80}
+                          height={80}
+                          className="h-20 w-20"
+                        />
+                      ) : path.icon ? (
+                        React.createElement(path.icon, {
+                          className: "h-20 w-20 text-white",
+                        })
+                      ) : null}
+                    </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          className="mt-16 grid gap-8 md:grid-cols-2"
-        >
-          {/* BUILD Card */}
-          <Link href="/build">
-            <motion.div
-              variants={cardVariants}
-              whileHover="hover"
-              className="group relative h-80 overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 p-8 dark:from-blue-950 dark:to-slate-900 border-2 border-blue-200 dark:border-blue-900 cursor-pointer transition-all"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="text-5xl font-bold text-blue-600 dark:text-blue-400">
-                    BUILD
-                  </h3>
-                  <p className="mt-4 text-lg font-semibold text-slate-700 dark:text-slate-300">
-                    Create. Engineer. Ship.
-                  </p>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Explore my projects, experience, and the technologies I use to
-                  build modern web applications.
-                </p>
-              </div>
-            </motion.div>
-          </Link>
+                    {/* Content */}
+                    <div className="space-y-4 text-center">
+                      <h2 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+                        {path.label}
+                      </h2>
+                      <p className={`text-lg font-semibold ${path.textColor}`}>
+                        {path.tagline}
+                      </p>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        {path.description}
+                      </p>
+                    </div>
 
-          {/* BREAK Card */}
-          <Link href="/break">
-            <motion.div
-              variants={cardVariants}
-              whileHover="hover"
-              className="group relative h-80 overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-950 to-slate-900 p-8 border-2 border-emerald-700 cursor-pointer transition-all"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="text-5xl font-bold text-emerald-400">BREAK</h3>
-                  <p className="mt-4 text-lg font-semibold text-slate-300">
-                    Analyze. Exploit. Secure.
-                  </p>
-                </div>
-                <p className="text-slate-400">
-                  Discover my cybersecurity knowledge, labs, tools, and security
-                  research.
-                </p>
-              </div>
-            </motion.div>
-          </Link>
-        </motion.div>
+                    {/* CTA Button */}
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`mt-6 rounded-full bg-gradient-to-r ${path.color} px-10 py-3 font-semibold text-white shadow-lg transition-shadow hover:shadow-xl`}
+                    >
+                      Explore
+                    </motion.div>
+                  </motion.button>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </motion.section>
   );
