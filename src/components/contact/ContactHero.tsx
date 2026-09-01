@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { div } from "framer-motion/m";
 import { Mail, Code, Briefcase, ExternalLink } from "lucide-react";
+import { SiInstagram, SiGmail, SiGithub } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 
 export function ContactHero() {
   const containerVariants = {
@@ -25,17 +26,23 @@ export function ContactHero() {
     {
       name: "Email",
       href: "mailto:andymanantsoa@myyahoo.com",
-      icon: Mail,
+      icon: SiGmail,
     },
+
     {
       name: "GitHub",
       href: "https://github.com/AndyManantsoa",
-      icon: Code,
+      icon: SiGithub,
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/AndyManantsoa",
-      icon: Briefcase,
+      icon: FaLinkedin,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/andymanantsoa",
+      icon: SiInstagram,
     },
   ];
 
@@ -61,8 +68,9 @@ export function ContactHero() {
           variants={itemVariants}
           className="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-400"
         >
-          I'm always interested in discussing web development, cybersecurity,
-          new technologies, or potential opportunities. Feel free to reach out!
+          We can discuss potential collaborations, projects, or any questions
+          you may have. I'm always open to connecting with like-minded
+          individuals and exploring new opportunities.
         </motion.p>
 
         {/* Contact Methods */}
@@ -76,10 +84,10 @@ export function ContactHero() {
                 href={method.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-lg border-2 border-blue-200 bg-white p-6 transition-all hover:border-blue-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-blue-500"
+                className="block rounded-full border-2 border-blue-200 bg-white p-6 transition-all hover:border-blue-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-blue-500"
               >
                 <div className="flex items-center gap-4">
-                  <div className="rounded-lg bg-blue-100 p-3 dark:bg-blue-900/30">
+                  <div className="rounded-full bg-blue-100 p-3 dark:bg-blue-900/30">
                     <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -92,19 +100,6 @@ export function ContactHero() {
               </a>
             );
           })}
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className="mt-16 rounded-lg border border-slate-200 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900"
-        >
-          <p className="text-center text-slate-600 dark:text-slate-400">
-            <span className="block font-semibold text-slate-900 dark:text-white">
-              BUILD • BREAK • UNDERSTAND
-            </span>
-            <span className="mt-2 block">
-              Whatever the system, I'm curious enough to understand it.
-            </span>
-          </p>
         </motion.div>
       </div>
     </motion.section>
