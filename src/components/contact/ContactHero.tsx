@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Code, Briefcase, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { SiInstagram, SiGmail, SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -41,7 +41,7 @@ export function ContactHero() {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/andymanantsoa",
+      href: "https://www.instagram.com/manantso_",
       icon: SiInstagram,
     },
   ];

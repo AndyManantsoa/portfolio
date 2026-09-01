@@ -1,76 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { Code, Briefcase, Mail } from "lucide-react";
+import { SiInstagram, SiGmail, SiGithub } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
-      icon: Code,
-      href: "https://github.com",
+      icon: SiGmail,
+      href: "mailto:andymanantsoa@myyahoo.com",
+      label: "Email",
+    },
+    {
+      icon: SiGithub,
+      href: "https://github.com/AndyManantsoa",
       label: "GitHub",
       target: "_blank",
     },
     {
-      icon: Briefcase,
-      href: "https://linkedin.com",
+      icon: FaLinkedin,
+      href: "https://linkedin.com/in/AndyManantsoa",
       label: "LinkedIn",
       target: "_blank",
     },
     {
-      icon: Mail,
-      href: "mailto:hello@example.com",
-      label: "Email",
+      icon: SiInstagram,
+      href: "https://instagram.com/manantso_",
+      label: "Instagram",
+      target: "_blank",
     },
   ];
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="flex items-center justify-around md:gap-12">
           {/* About */}
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Andy
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-              Software Developer × Cybersecurity Enthusiast
+              Fullstack Web/mobile Developer × Ethical Hacker
             </p>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-              Sections
-            </h3>
-            <ul className="mt-2 space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/build"
-                  className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  BUILD
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/break"
-                  className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  BREAK
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  CONTACT
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Social */}
