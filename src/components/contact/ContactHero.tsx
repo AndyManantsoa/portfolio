@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { div } from "framer-motion/m";
 import { Mail, Code, Briefcase, ExternalLink } from "lucide-react";
 
 export function ContactHero() {
@@ -20,6 +21,24 @@ export function ContactHero() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
+  const contactMethods = [
+    {
+      name: "Email",
+      href: "mailto:andymanantsoa@myyahoo.com",
+      icon: Mail,
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/AndyManantsoa",
+      icon: Code,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/AndyManantsoa",
+      icon: Briefcase,
+    },
+  ];
+
   return (
     <motion.section
       className="relative min-h-screen overflow-hidden px-4 py-32 sm:px-6 lg:px-8"
@@ -35,7 +54,7 @@ export function ContactHero() {
           variants={itemVariants}
           className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
         >
-          Let's Talk
+          Let's get in touch!
         </motion.h1>
 
         <motion.p
@@ -49,74 +68,31 @@ export function ContactHero() {
         {/* Contact Methods */}
         <motion.div variants={itemVariants} className="mt-12 space-y-4">
           {/* Email */}
-          <a
-            href="mailto:hello@example.com"
-            className="block rounded-lg border-2 border-blue-200 bg-white p-6 transition-all hover:border-blue-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-blue-500"
-          >
-            <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-blue-100 p-3 dark:bg-blue-900/30">
-                <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-900 dark:text-white">
-                  Email
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  hello@example.com
-                </p>
-              </div>
-              <ExternalLink className="ml-auto h-4 w-4 text-slate-400" />
-            </div>
-          </a>
-
-          {/* GitHub */}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-lg border-2 border-slate-300 bg-white p-6 transition-all hover:border-slate-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-slate-600"
-          >
-            <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-slate-100 p-3 dark:bg-slate-900">
-                <Code className="h-6 w-6 text-slate-700 dark:text-slate-300" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-900 dark:text-white">
-                  GitHub
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  github.com/yourprofile
-                </p>
-              </div>
-              <ExternalLink className="ml-auto h-4 w-4 text-slate-400" />
-            </div>
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-lg border-2 border-slate-300 bg-white p-6 transition-all hover:border-slate-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-slate-600"
-          >
-            <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-slate-100 p-3 dark:bg-slate-900">
-                <Briefcase className="h-6 w-6 text-slate-700 dark:text-slate-300" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-900 dark:text-white">
-                  LinkedIn
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  linkedin.com/in/yourprofile
-                </p>
-              </div>
-              <ExternalLink className="ml-auto h-4 w-4 text-slate-400" />
-            </div>
-          </a>
+          {contactMethods.map((method) => {
+            const Icon = method.icon;
+            return (
+              <a
+                key={method.name}
+                href={method.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg border-2 border-blue-200 bg-white p-6 transition-all hover:border-blue-400 hover:shadow-lg dark:border-slate-700 dark:bg-slate-950 dark:hover:border-blue-500"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="rounded-lg bg-blue-100 p-3 dark:bg-blue-900/30">
+                    <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 dark:text-white">
+                      {method.name}
+                    </h3>
+                  </div>
+                  <ExternalLink className="ml-auto h-4 w-4 text-slate-400" />
+                </div>
+              </a>
+            );
+          })}
         </motion.div>
-
-        {/* Final message */}
         <motion.div
           variants={itemVariants}
           className="mt-16 rounded-lg border border-slate-200 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900"
