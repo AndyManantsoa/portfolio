@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { BreakHero } from "@/components/break/BreakHero";
-import { SecurityGrid } from "@/components/break/SecurityCard";
-import { getAllSecurityAreas } from "@/data/security";
+import { SkillsShowcase } from "@/components/break/SkillsShowcase";
 
 export const metadata: Metadata = {
   title: "BREAK - Cybersecurity",
@@ -13,7 +12,7 @@ export default function BreakPage() {
   return (
     <div className="space-y-20">
       <BreakHero />
-
+      <SkillsShowcase />
       {/* Featured Sections */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
@@ -74,39 +73,6 @@ export default function BreakPage() {
                 </p>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section
-        className="border-t border-emerald-700/50 px-4 py-20 sm:px-6 lg:px-8"
-        style={{
-          background:
-            "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)",
-        }}
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-emerald-400">
-            Ready to explore?
-          </h2>
-          <p className="mt-4 text-lg text-slate-400">
-            Choose a section to dive deeper into my security research.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 justify-center sm:flex-row">
-            <a
-              href="/break/security"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-2 font-medium text-white transition-all hover:bg-emerald-700"
-            >
-              Security Knowledge
-            </a>
-            <a
-              href="/break/writeups"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-emerald-700/50 bg-transparent px-6 py-2 font-medium text-emerald-400 transition-all hover:bg-emerald-900/20"
-            >
-              Read Writeups
-            </a>
           </div>
         </div>
       </section>

@@ -22,7 +22,7 @@ export function BreakHero() {
 
   return (
     <motion.section
-      className="relative min-h-[60vh] overflow-hidden px-4 py-20 sm:px-6 lg:px-8"
+      className="relative min-h-[40vh] overflow-hidden px-4 py-45 sm:px-6 lg:px-8"
       style={{
         background:
           "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)",
@@ -46,43 +46,19 @@ export function BreakHero() {
           variants={itemVariants}
           className="text-5xl font-bold tracking-tight text-emerald-400 sm:text-6xl"
         >
-          BREAK
+          Let's{" "}
+          <span className="bg-gradient-to-r from-yellow-500 via-cyan-300 to-yellow-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-[shine_3s_linear_infinite] dark:from-yellow-400 dark:via-cyan-200 dark:to-yellow-400">
+            break
+          </span>{" "}
+          applications and networks together
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mt-4 text-2xl font-semibold text-emerald-400"
+          className="mt-4 text-2xl font-semibold text-slate-400"
         >
           {MICROCOPY.break.tagline}
         </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 max-w-2xl text-lg text-slate-300"
-        >
-          I study cybersecurity and security testing to understand how systems
-          work, where they fail, and how to secure them. This section contains
-          my labs, writeups, security research, and practical security
-          knowledge.
-        </motion.p>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-12 grid gap-6 md:grid-cols-3"
-        >
-          <div className="rounded-lg border border-emerald-700/50 bg-slate-950/50 p-6 backdrop-blur">
-            <div className="text-3xl font-bold text-emerald-400">5+</div>
-            <p className="mt-2 text-slate-400">Security Areas Studied</p>
-          </div>
-          <div className="rounded-lg border border-emerald-700/50 bg-slate-950/50 p-6 backdrop-blur">
-            <div className="text-3xl font-bold text-emerald-400">10+</div>
-            <p className="mt-2 text-slate-400">Tools & Platforms</p>
-          </div>
-          <div className="rounded-lg border border-emerald-700/50 bg-slate-950/50 p-6 backdrop-blur">
-            <div className="text-3xl font-bold text-emerald-400">20+</div>
-            <p className="mt-2 text-slate-400">Labs Completed</p>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
