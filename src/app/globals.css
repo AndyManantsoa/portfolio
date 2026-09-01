@@ -37,6 +37,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 /* Animations */
 @keyframes fadeIn {
   from {

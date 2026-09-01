@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BuildHero } from "@/components/build/BuildHero";
 import { ProjectGrid } from "@/components/build/ProjectCard";
 import { getAllProjects } from "@/data/projects";
+import { SkillsShowcase } from "@/components/build/SkillsShowcase";
 
 export const metadata: Metadata = {
   title: "BUILD - Projects & Experience",
@@ -41,39 +42,7 @@ export default function BuildPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="border-t border-slate-200 bg-gradient-to-br from-blue-50 to-slate-50 px-4 py-20 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Ready to explore?
-          </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Dive deeper into specific sections of my work.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 justify-center sm:flex-row">
-            <a
-              href="/build/projects"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-500 px-6 py-2 font-medium text-white transition-all hover:bg-blue-600"
-            >
-              All Projects
-            </a>
-            <a
-              href="/build/experience"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-transparent px-6 py-2 font-medium text-slate-900 transition-all hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-900"
-            >
-              Experience
-            </a>
-            <a
-              href="/build/skills"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-transparent px-6 py-2 font-medium text-slate-900 transition-all hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-900"
-            >
-              Skills
-            </a>
-          </div>
-        </div>
-      </section>
+      <SkillsShowcase />
     </div>
   );
 }

@@ -22,7 +22,7 @@ export function BuildHero() {
 
   return (
     <motion.section
-      className="relative min-h-[60vh] overflow-hidden bg-white px-4 py-20 dark:bg-slate-950 sm:px-6 lg:px-8"
+      className="relative min-h-[40vh] overflow-hidden bg-white px-4 py-45 dark:bg-slate-950 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -35,55 +35,19 @@ export function BuildHero() {
           variants={itemVariants}
           className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
         >
-          BUILD
+          Let's build something{" "}
+          <span className="bg-gradient-to-r from-blue-500 via-cyan-300 to-blue-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-[shine_3s_linear_infinite] dark:from-blue-400 dark:via-cyan-200 dark:to-blue-400">
+            amazing
+          </span>{" "}
+          together!
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mt-4 text-2xl font-semibold text-blue-600 dark:text-blue-400"
+          className="mt-4 text-2xl font-semibold text-slate-600 dark:text-slate-400"
         >
           {MICROCOPY.build.tagline}
         </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-400"
-        >
-          I create modern web applications with clean code, thoughtful design,
-          and a focus on user experience. Here you'll find projects that
-          showcase my skills in full-stack development, frontend design, and
-          software engineering best practices.
-        </motion.p>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-12 grid gap-6 md:grid-cols-3"
-        >
-          <div className="rounded-lg bg-white/50 p-6 backdrop-blur dark:bg-slate-950/50">
-            <div className="text-3xl font-bold text-blue-500 dark:text-blue-400">
-              10+
-            </div>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Projects Built
-            </p>
-          </div>
-          <div className="rounded-lg bg-white/50 p-6 backdrop-blur dark:bg-slate-950/50">
-            <div className="text-3xl font-bold text-blue-500 dark:text-blue-400">
-              5+
-            </div>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Years Learning
-            </p>
-          </div>
-          <div className="rounded-lg bg-white/50 p-6 backdrop-blur dark:bg-slate-950/50">
-            <div className="text-3xl font-bold text-blue-500 dark:text-blue-400">
-              15+
-            </div>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Technologies
-            </p>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
