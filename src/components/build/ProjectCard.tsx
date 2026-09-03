@@ -2,141 +2,87 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react/";
+import { SiGithub } from "react-icons/si";
 import { motion } from "framer-motion";
-import { Code, ExternalLink } from "lucide-react";
 import type { Project } from "@/data/projects";
-import { cn } from "@/lib/utils";
 
-interface ProjectCardProps {
+type ProjectCardProps = {
   project: Project;
-  index?: number;
-}
+};
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, delay: index * 0.1 },
-    },
-  };
-
-  const hoverVariants = {
-    hover: {
-      y: -8,
-      transition: { duration: 0.3 },
-    },
-  };
-
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.div
-      variants={containerVariants}
-      whileHover="hover"
-      className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5 }}
+      className="group"
     >
+      {/* Project image */}
       <Link href={`/build/project/${project.slug}`}>
-        <div className="block">
-          <motion.div
-            variants={hoverVariants}
-            className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-100 to-slate-100 dark:from-slate-800 dark:to-slate-900"
-          >
-            {/* Placeholder image - replace with actual images */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-500/20 dark:text-blue-400/20">
-                  {project.slug.toUpperCase().slice(0, 2)}
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-neutral-900">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
 
-          <div className="p-6">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              {project.name}
-            </h3>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
 
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-              {project.shortDescription || project.description}
-            </p>
-
-            {/* Technologies */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.technologies.slice(0, 3).map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.technologies.length > 3 && (
-                <span className="inline-block text-xs text-slate-500 dark:text-slate-400">
-                  +{project.technologies.length - 3} more
-                </span>
-              )}
-            </div>
-
-            {/* Links */}
-            <div className="mt-6 flex gap-4">
-              {project.github && project.github !== "#" && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-500 transition-colors hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Code className="h-4 w-4" />
-                  Code
-                </a>
-              )}
-              {project.demo && project.demo !== "#" && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-500 transition-colors hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Demo
-                </a>
-              )}
-            </div>
+          {/* Open icon */}
+          <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
+            <ArrowUpRight className="h-5 w-5 text-white" />
           </div>
         </div>
       </Link>
-    </motion.div>
-  );
-}
 
-interface ProjectGridProps {
-  projects: Project[];
-}
+      {/* Project information */}
+      <div className="mt-5">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <Link href={`/build/project/${project.slug}`}>
+              <h3 className="text-xl font-medium tracking-tight transition-opacity group-hover:opacity-70">
+                {project.title}
+              </h3>
+            </Link>
 
-export function ProjectGrid({ projects }: ProjectGridProps) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+            <p className="mt-2 max-w-xl text-sm leading-6 text-neutral-400">
+              {project.description}
+            </p>
+          </div>
 
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-      className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-    >
-      {projects.map((project, index) => (
-        <ProjectCard key={project.slug} project={project} index={index} />
-      ))}
-    </motion.div>
+          {/* Links */}
+          <div className="flex shrink-0 gap-2">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} GitHub`}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 transition-colors hover:bg-white/10"
+              >
+                <SiGithub className="h-4 w-4" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Technologies */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.technologies.map((technology) => (
+            <span
+              key={technology}
+              className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-400"
+            >
+              {technology}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.article>
   );
 }
