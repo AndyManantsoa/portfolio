@@ -1,48 +1,58 @@
-// TODO: Update with actual project data
-
-export interface Project {
+export type Project = {
   slug: string;
-  name: string;
+  title: string;
   description: string;
-  shortDescription?: string;
-  problemSolved: string;
+  image: string;
   technologies: string[];
-  keyFeatures: string[];
   github?: string;
   demo?: string;
-  images?: string[];
-  challenges: string[];
-  lessonsLearned: string[];
-  year: number;
   featured?: boolean;
-}
+};
 
 export const projects: Project[] = [
   {
-    slug: "todo-project-1",
-    name: "TODO: Project Name",
-    description: "TODO: Add detailed project description",
-    shortDescription: "TODO: Add short description",
-    problemSolved: "TODO: Add problem solved",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    keyFeatures: ["TODO: Feature 1", "TODO: Feature 2"],
-    github: "#",
-    demo: "#",
-    challenges: ["TODO: Challenge 1"],
-    lessonsLearned: ["TODO: Lesson 1"],
-    year: 2024,
+    slug: "elective-course-recommendation",
+    title: "Elective Course Recommendation System",
+    description:
+      "An intelligent platform that helps students choose suitable elective courses based on their interests, academic profile, and career goals.",
+    image: "/projects/crs.png",
+    technologies: ["Next.js", "TypeScript", "Python", "FastAPI", "PostgreSQL"],
+    github: "https://github.com/yourusername/project",
+    demo: "https://example.com",
+    featured: true,
+  },
+
+  {
+    slug: "inventory-management",
+    title: "Inventory Management System",
+    description:
+      "A full-stack inventory management application for managing products, stock levels, and business operations.",
+    image: "/projects/inventory.png",
+    technologies: ["Next.js", "Node.js", "Express", "MongoDB"],
+    github: "https://github.com/yourusername/project",
+    demo: "https://example.com",
+    featured: true,
+  },
+
+  {
+    slug: "church-voting-app",
+    title: "Church Song Voting App",
+    description:
+      "A web application that allows members to vote for songs and helps organize song selections for church services.",
+    image: "/projects/church.png",
+    technologies: ["Next.js", "TypeScript", "Supabase"],
+    github: "https://github.com/yourusername/project",
+    featured: false,
+  },
+
+  {
+    slug: "money-exchange-platform",
+    title: "Student Money Exchange Platform",
+    description:
+      "A concept for facilitating currency exchange between students using local payment ecosystems such as Mvola and UPI.",
+    image: "/projects/exchange.png",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL"],
+    github: "https://github.com/yourusername/project",
     featured: true,
   },
 ];
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
-}
-
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured).slice(0, 3);
-}
-
-export function getAllProjects(): Project[] {
-  return projects.sort((a, b) => b.year - a.year);
-}

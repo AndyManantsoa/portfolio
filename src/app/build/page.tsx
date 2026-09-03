@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BuildHero } from "@/components/build/BuildHero";
-import { ProjectGrid } from "@/components/build/ProjectCard";
-import { getAllProjects } from "@/data/projects";
+import ProjectGrid from "@/components/build/ProjectGrid";
+
 import { SkillsShowcase } from "@/components/build/SkillsShowcase";
 
 export const metadata: Metadata = {
@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function BuildPage() {
-  const projects = getAllProjects();
-
   return (
     <div className="space-y-20">
       <BuildHero />
@@ -20,16 +18,19 @@ export default function BuildPage() {
       {/* Featured Projects */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Featured Projects
-          </h2>
-          <p className="mt-2 text-slate-600 dark:text-slate-400">
-            A selection of projects I've built to solve real problems and
-            explore new technologies.
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-neutral-500">
+            BUILD / PROJECTS
+          </p>
+          <h1 className="text-5xl font-medium tracking-tight md:text-7xl">
+            Things I've built.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-400 md:text-lg">
+            A collection of applications, systems, and experiments I've designed
+            and developed.
           </p>
 
-          <div className="mt-12">
-            <ProjectGrid projects={projects.slice(0, 6)} />
+          <div className="mx-auto max-w-7xl">
+            <ProjectGrid />
           </div>
 
           <div className="mt-8 text-center">
