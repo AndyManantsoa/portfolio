@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  BrushCleaning,
   Cloud,
   Code2,
   Cpu,
@@ -162,9 +161,12 @@ export function SkillsShowcase() {
   return (
     <div className="min-h-screen bg-[#040b16] px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl lg:text-6xl">
-            My Skills
+        <header className=" mb-12 max-w-3xl">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-neutral-500">
+            BUILD / SKILLS
+          </p>
+          <h1 className="text-4xl font-bold tracking-tight md:text-7xl">
+            Tools I master.
           </h1>
         </header>
 
@@ -181,7 +183,7 @@ export function SkillsShowcase() {
                   aria-pressed={isActive}
                   onClick={() => setActiveTab(section.id)}
                   className={[
-                    "group relative flex flex-1 min-w-[180px] items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ease-out",
+                    "group relative flex flex-1 min-w-45 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ease-out",
                     isActive
                       ? "bg-blue-500 text-white shadow-[0_8px_20px_rgba(59,130,246,0.35)]"
                       : "border border-transparent bg-transparent text-slate-400 hover:border-slate-700 hover:bg-slate-800/60 hover:text-slate-200",
@@ -210,7 +212,7 @@ export function SkillsShowcase() {
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="mb-8 rounded-[28px] border border-slate-700/80 bg-[#0a1627]/95 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8"
           >
-            <h2 className="text-2xl font-semibold tracking-[-0.05em] text-cyan-400 sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-cyan-400 sm:text-3xl">
               {activeSection.title}
             </h2>
 
@@ -236,7 +238,7 @@ export function SkillsShowcase() {
         </AnimatePresence>
 
         <section className="rounded-[28px] border border-slate-700/80 bg-[#0a1627]/95 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8">
-          <h2 className="text-center text-2xl font-semibold tracking-[-0.05em] text-cyan-400 sm:text-3xl">
+          <h2 className="text-center text-2xl font-semibold tracking-tight text-cyan-400 sm:text-3xl">
             AI &amp; Developer Tooling
           </h2>
 

@@ -35,24 +35,23 @@ export const projects: Project[] = [
   },
 
   {
+    slug: "Shikder green agro farm",
+    title: "Shikder agro: showcase website",
+    description:
+      "A showcase website for Shikder Green Agro Farm, highlighting their products and services.",
+    image: "/projects/shikder.png",
+    technologies: ["Next.js", "TypeScript"],
+    github: "https://github.com/yourusername/project",
+    featured: true,
+  },
+  {
     slug: "church-voting-app",
     title: "Church Song Voting App",
     description:
       "A web application that allows members to vote for songs and helps organize song selections for church services.",
     image: "/projects/church.png",
-    technologies: ["Next.js", "TypeScript", "Supabase"],
+    technologies: ["Next.js", "TypeScript", "Supabase", "Express"],
     github: "https://github.com/yourusername/project",
     featured: false,
-  },
-
-  {
-    slug: "money-exchange-platform",
-    title: "Student Money Exchange Platform",
-    description:
-      "A concept for facilitating currency exchange between students using local payment ecosystems such as Mvola and UPI.",
-    image: "/projects/exchange.png",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL"],
-    github: "https://github.com/yourusername/project",
-    featured: true,
   },
 ];
