@@ -27,6 +27,8 @@ function ProjectShowcase() {
               designed and developed.
             </p>
           </motion.header>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
           <motion.section
             key="project-showcase-section"
             initial={{ opacity: 0, y: 12 }}
