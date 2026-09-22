@@ -33,7 +33,7 @@ export function ProfileImage() {
       className="relative mx-auto w-full max-w-md lg:max-w-lg"
     >
       {/* Subtle glow background */}
-      <div className="absolute -inset-8 rounded-full bg-gradient-to-br from-blue-200/30 to-emerald-200/30 blur-3xl dark:from-blue-900/20 dark:to-emerald-900/20" />
+      <div className="absolute -inset-8 rounded-full bg-linear-to-br from-blue-200/30 to-emerald-200/30 blur-3xl dark:from-blue-900/20 dark:to-emerald-900/20" />
 
       {/* Image container with organic shape */}
       <motion.div

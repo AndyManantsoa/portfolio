@@ -57,7 +57,7 @@ export function SkillGrid({ categories }: SkillGridProps) {
                 {skill.proficiency && (
                   <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
                     <motion.div
-                      className="h-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-emerald-500 dark:to-emerald-600"
+                      className="h-full bg-linear-to-br from-blue-500 to-blue-600 dark:from-emerald-500 dark:to-emerald-600"
                       initial={{ width: 0 }}
                       whileInView={{
                         width: {
