@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import styles from "@/components/portfolio/Portfolio.module.css";
 import { BuildHero } from "@/components/build/BuildHero";
 import ProjectShowcase from "@/components/build/ProjectShowcase";
 import { SkillsShowcase } from "@/components/build/SkillsShowcase";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BuildPage() {
   return (
-    <div className="space-y-20">
+    <div className={styles.page}>
       <BuildHero />
       {/* Featured Projects */}
       <ProjectShowcase />

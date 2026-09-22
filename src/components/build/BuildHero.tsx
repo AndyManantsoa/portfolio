@@ -1,52 +1,20 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { Code2, ArrowDown, ArrowUpRight } from "lucide-react";
 import { MICROCOPY } from "@/lib/constants";
+import styles from "@/components/portfolio/Portfolio.module.css";
 
 export function BuildHero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
   return (
-    <motion.section
-      className="relative min-h-[40vh] overflow-hidden bg-transparent px-4 py-45 sm:px-6 lg:px-8"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-
-      <div className="relative mx-auto max-w-4xl">
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
-        >
-          Let's build something{" "}
-          <span className="bg-gradient-to-r from-blue-500 via-cyan-300 to-blue-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-[shine_3s_linear_infinite] dark:from-blue-400 dark:via-cyan-200 dark:to-blue-400">
-            amazing
-          </span>{" "}
-          together!
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-4 text-2xl font-semibold text-slate-600 dark:text-slate-400"
-        >
-          {MICROCOPY.build.tagline}
-        </motion.p>
+    <header className={styles.hero}>
+      <div className={styles.container}>
+        <p className={styles.eyebrow}><Code2 aria-hidden="true" /> Software Development</p>
+        <h1 className={styles.title}>BUILD</h1>
+        <p className={styles.tagline}>{MICROCOPY.build.tagline}</p>
+        <div className={styles.heroLinks}>
+          <a href="#projects" className={styles.link}>Explore projects <ArrowDown aria-hidden="true" /></a>
+          <Link href="/break" className={styles.link}>Explore BREAK <ArrowUpRight aria-hidden="true" /></Link>
+        </div>
       </div>
-    </motion.section>
+    </header>
   );
 }
