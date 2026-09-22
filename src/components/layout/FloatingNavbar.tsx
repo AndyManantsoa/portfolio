@@ -61,6 +61,7 @@ export function FloatingNavbar() {
 
   return (
     <motion.nav
+      data-cursor="navbar"
       className="fixed left-1/2 top-6 z-50 -translate-x-1/2 transform"
       variants={containerVariants}
       initial="hidden"

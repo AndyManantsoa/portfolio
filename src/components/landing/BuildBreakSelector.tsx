@@ -8,7 +8,7 @@ export function BuildBreakSelector() {
       className={styles.split}
       aria-label="Explore development or web pentesting"
     >
-      <Link href="/build" className={`${styles.side} ${styles.build}`}>
+      <Link data-cursor="build" href="/build" className={`${styles.side} ${styles.build}`}>
         <span className={styles.detail} aria-hidden="true">
           &lt;/&gt;
         </span>
@@ -35,7 +35,7 @@ export function BuildBreakSelector() {
         <span />
       </div>
 
-      <Link href="/break" className={`${styles.side} ${styles.break}`}>
+      <Link data-cursor="break" href="/break" className={`${styles.side} ${styles.break}`}>
         <span className={styles.detail} aria-hidden="true">
           <span className={styles.method}>GET</span> /api{" "}
           <span className={styles.protocol}>HTTP/1.1</span>

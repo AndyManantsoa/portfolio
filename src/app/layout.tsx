@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DesktopCursor } from "@/components/cursor/DesktopCursor";
 import { AppBackground } from "@/components/background/AppBackground";
 import { FloatingNavbar } from "@/components/layout/FloatingNavbar";
 import { Footer } from "@/components/layout/Footer";
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <AppBackground />
+        <DesktopCursor />
         <FloatingNavbar />
         <main className="app-content min-h-screen">{children}</main>
         <Footer />
