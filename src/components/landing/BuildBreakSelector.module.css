@@ -1,0 +1,161 @@
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.side {
+  --accent: 103, 218, 255;
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 42svh;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5rem 1.5rem;
+  color: #f1f5ff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: opacity 650ms ease, background-color 650ms ease;
+}
+
+.break { --accent: 107, 255, 155; }
+
+.side::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 55%, rgba(var(--accent), 0.09), transparent 68%);
+  opacity: 0.65;
+  transition: opacity 650ms ease, transform 900ms ease;
+}
+
+.content { text-align: center; }
+
+.heading {
+  margin: 0;
+  font-size: clamp(3.5rem, 15vw, 6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.065em;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), color 650ms ease, text-shadow 650ms ease;
+}
+
+.subtitle {
+  margin: 1.25rem 0 0;
+  color: rgb(var(--accent));
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.625rem;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+}
+
+.detail {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: rgba(var(--accent), 0.55);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  user-select: none;
+}
+
+.method { color: rgba(var(--accent), 0.8); }
+.protocol { margin-left: 0.75rem; opacity: 0.55; }
+
+.arrow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  color: rgba(var(--accent), 0.55);
+  font-size: 1.25rem;
+  transition: transform 650ms ease, color 650ms ease;
+}
+
+.divider {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 0;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 2rem;
+  pointer-events: none;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #94a3b850, transparent);
+}
+
+.divider span:nth-of-type(2) { flex: 0.25; }
+
+.divider i {
+  width: 3px;
+  height: 3px;
+  flex: none;
+  background: #b3bfd380;
+  box-shadow: 0 0 8px #8080e530;
+}
+
+.side:focus-visible {
+  outline: 1px solid rgb(var(--accent));
+  outline-offset: -8px;
+}
+
+.side:focus-visible::before { opacity: 1; }
+.side:focus-visible .heading { color: rgb(var(--accent)); }
+
+@media (min-width: 768px) {
+  .split {
+    grid-template-columns: 50% 0 50%;
+    transition: grid-template-columns 750ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .side { min-height: min(78svh, 850px); padding: 8rem 2rem; }
+  .heading { font-size: clamp(4rem, 8.5vw, 9rem); }
+  .subtitle { font-size: 0.6875rem; }
+  .detail { top: 3rem; left: clamp(2rem, 4vw, 5rem); }
+  .arrow { bottom: 3rem; right: clamp(2rem, 4vw, 5rem); }
+
+  .divider {
+    height: auto;
+    width: 0;
+    margin: 3rem 0;
+    flex-direction: column;
+  }
+
+  .divider span {
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, #94a3b850, transparent);
+  }
+
+  .split:has(.build:focus-visible) { grid-template-columns: 58% 0 42%; }
+  .split:has(.break:focus-visible) { grid-template-columns: 42% 0 58%; }
+  .split:has(.side:focus-visible) .side:not(:focus-visible) { opacity: 0.55; }
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  .split:has(.build:hover) { grid-template-columns: 58% 0 42%; }
+  .split:has(.break:hover) { grid-template-columns: 42% 0 58%; }
+  .split:has(.side:hover) .side:not(:hover):not(:focus-visible) { opacity: 0.55; }
+
+  .side:hover::before { opacity: 1; transform: scale(1.15); }
+  .side:hover .heading {
+    transform: translateY(-6px);
+    color: rgb(var(--accent));
+    text-shadow: 0 0 50px rgba(var(--accent), 0.16);
+  }
+  .side:hover .arrow { transform: translate(3px, -3px); color: rgb(var(--accent)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split, .side, .side::before, .heading, .arrow { transition: none; }
+  .side:hover .heading, .side:hover .arrow, .side:hover::before { transform: none; }
+}
