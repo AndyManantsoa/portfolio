@@ -1,16 +1,30 @@
 import Link from "next/link";
 import styles from "./BuildBreakSelector.module.css";
+import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
 
 export function BuildBreakSelector() {
   return (
-    <section className={styles.split} aria-label="Explore development or web pentesting">
+    <section
+      className={styles.split}
+      aria-label="Explore development or web pentesting"
+    >
       <Link href="/build" className={`${styles.side} ${styles.build}`}>
-        <span className={styles.detail} aria-hidden="true">&lt;/&gt;</span>
+        <span className={styles.detail} aria-hidden="true">
+          &lt;/&gt;
+        </span>
         <div className={styles.content}>
           <h2 className={styles.heading}>BUILD</h2>
           <p className={styles.subtitle}>Software Development</p>
+          <span className={styles.cta}>
+            <span aria-hidden="true" className="text-2xl">
+              <IoMdArrowDropleft />
+            </span>
+            Explore projects{" "}
+          </span>
         </div>
-        <span className={styles.arrow} aria-hidden="true">↗</span>
+        <span className={styles.arrow} aria-hidden="true">
+          ↗
+        </span>
       </Link>
 
       <div className={styles.divider} aria-hidden="true">
@@ -23,13 +37,22 @@ export function BuildBreakSelector() {
 
       <Link href="/break" className={`${styles.side} ${styles.break}`}>
         <span className={styles.detail} aria-hidden="true">
-          <span className={styles.method}>GET</span> /api <span className={styles.protocol}>HTTP/1.1</span>
+          <span className={styles.method}>GET</span> /api{" "}
+          <span className={styles.protocol}>HTTP/1.1</span>
         </span>
         <div className={styles.content}>
           <h2 className={styles.heading}>BREAK</h2>
           <p className={styles.subtitle}>Web Pentesting</p>
+          <span className={styles.cta}>
+            Explore security{" "}
+            <span aria-hidden="true" className="text-2xl">
+              <IoMdArrowDropright />
+            </span>
+          </span>
         </div>
-        <span className={styles.arrow} aria-hidden="true">↗</span>
+        <span className={styles.arrow} aria-hidden="true">
+          ↗
+        </span>
       </Link>
     </section>
   );
