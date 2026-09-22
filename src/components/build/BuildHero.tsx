@@ -22,13 +22,11 @@ export function BuildHero() {
 
   return (
     <motion.section
-      className="relative min-h-[40vh] overflow-hidden bg-white px-4 py-45 dark:bg-slate-950 sm:px-6 lg:px-8"
+      className="relative min-h-[40vh] overflow-hidden bg-transparent px-4 py-45 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Background gradient - BUILD aesthetic (clean, structured) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900" />
 
       <div className="relative mx-auto max-w-4xl">
         <motion.h1

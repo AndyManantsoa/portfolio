@@ -161,7 +161,7 @@ export function SkillsShowcase() {
   );
 
   return (
-    <div className="min-h-screen bg-[#040b16] px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <header className="mb-10 text-center">
           <h1 className="text-4xl font-black tracking-[-0.06em] text-white sm:text-5xl lg:text-6xl">
@@ -209,7 +209,7 @@ export function SkillsShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="mb-8 rounded-[28px] border border-slate-700/80 bg-[#0a1627]/95 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8"
+            className="mb-8 rounded-[28px] border border-slate-700/80 bg-slate-900/65 backdrop-blur-sm p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8"
           >
             <h2 className="text-2xl font-semibold tracking-tighter text-emerald-400 sm:text-3xl">
               {activeSection.title}
@@ -221,7 +221,7 @@ export function SkillsShowcase() {
                   key={card.name}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="group rounded-2xl border border-slate-700/80 bg-[#0c1a2d] p-5 text-center shadow-[inset_0_1px_0_rgba(148,163,184,0.08)] transition-all duration-200 hover:border-emerald-400/50 hover:bg-[#101f35] hover:shadow-[0_0_0_1px_rgba(16,185,129,0.15),0_16px_32px_rgba(14,116,144,0.12)]"
+                  className="group rounded-2xl border border-slate-700/80 bg-slate-900/70 p-5 text-center shadow-[inset_0_1px_0_rgba(148,163,184,0.08)] transition-all duration-200 hover:border-emerald-400/50 hover:bg-[#101f35] hover:shadow-[0_0_0_1px_rgba(16,185,129,0.15),0_16px_32px_rgba(14,116,144,0.12)]"
                 >
                   <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/20 bg-slate-800/80 text-emerald-300 shadow-[inset_0_0_18px_rgba(16,185,129,0.08)] transition-all duration-200 group-hover:border-emerald-300/40 group-hover:shadow-[0_0_0_1px_rgba(16,185,129,0.18),inset_0_0_18px_rgba(16,185,129,0.14)]">
                     {card.icon}
@@ -236,7 +236,7 @@ export function SkillsShowcase() {
           </motion.section>
         </AnimatePresence>
 
-        <section className="rounded-[28px] border border-slate-700/80 bg-[#0a1627]/95 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8">
+        <section className="rounded-[28px] border border-slate-700/80 bg-slate-900/65 backdrop-blur-sm p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.35)] sm:p-8">
           <h2 className="text-center text-2xl font-semibold tracking-tighter text-emerald-400 sm:text-3xl">
             AI &amp; Developer Tooling
           </h2>

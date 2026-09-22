@@ -46,10 +46,6 @@ export default async function WriteupPage({
       {/* Navigation back */}
       <div
         className="border-b border-emerald-700/50 px-4 py-4 sm:px-6 lg:px-8"
-        style={{
-          background:
-            "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)",
-        }}
       >
         <div className="mx-auto max-w-4xl">
           <Link
@@ -65,10 +61,6 @@ export default async function WriteupPage({
       {/* Hero */}
       <section
         className="border-b border-emerald-700/50 px-4 py-12 sm:px-6 lg:px-8"
-        style={{
-          background:
-            "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)",
-        }}
       >
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold text-emerald-400">

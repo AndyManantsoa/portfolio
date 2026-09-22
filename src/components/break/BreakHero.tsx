@@ -23,10 +23,6 @@ export function BreakHero() {
   return (
     <motion.section
       className="relative min-h-[40vh] overflow-hidden px-4 py-45 sm:px-6 lg:px-8"
-      style={{
-        background:
-          "linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)",
-      }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}

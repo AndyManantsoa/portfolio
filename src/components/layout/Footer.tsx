@@ -34,7 +34,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+    <footer className="relative border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/60 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex items-center justify-around md:gap-12">
           {/* About */}

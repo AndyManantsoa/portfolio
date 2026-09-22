@@ -34,7 +34,7 @@ export default async function ProjectPage({
       </div>
 
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12 dark:border-slate-800 dark:bg-slate-950 sm:px-6 lg:px-8">
+      <section className="border-b border-slate-200 bg-transparent px-4 py-12 dark:border-slate-800 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
             {project.name}

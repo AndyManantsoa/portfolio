@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AppBackground } from "@/components/background/AppBackground";
 import { FloatingNavbar } from "@/components/layout/FloatingNavbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -35,11 +36,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
-      <body className="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
+      <body className="antialiased">
+        <AppBackground />
         <FloatingNavbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="app-content min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

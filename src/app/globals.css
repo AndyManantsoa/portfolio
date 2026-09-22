@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050816;
+  --foreground: #f1f5ff;
+  color-scheme: dark;
   /* Animation tokens */
   --duration-fast: 150ms;
   --duration-base: 300ms;
@@ -20,12 +23,6 @@
   --animation-slideInDown: slide-in-down var(--duration-base) var(--ease-in-out);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 html {
   scroll-behavior: smooth;
@@ -34,7 +31,8 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  isolation: isolate;
 }
 
 @keyframes shine {
@@ -139,4 +137,42 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* One viewport-sized background persists across every route. */
+.app-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 18%, #8080e526, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, #27ff6c12, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a29ff55, transparent 65%),
+    #050816;
+}
+
+.app-background-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #05081655, #05081688 55%, #05081666);
+}
+
+.app-content { position: relative; }
+
+/* Keep secondary copy legible against the animated backdrop. */
+@layer base {
+  .dark {
+    --color-slate-400: #b3bfd3;
+    --color-slate-500: #96a5bd;
+    --color-neutral-400: #b6bfd2;
+    --color-neutral-500: #9caac2;
+    --color-emerald-400: #6bff9b;
+    --color-blue-400: #a2a2ff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

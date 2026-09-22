@@ -27,7 +27,7 @@ export function LandingHero() {
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-white px-4 py-20 dark:bg-slate-950 sm:px-6 lg:px-8"
+      className="relative min-h-screen overflow-hidden bg-transparent px-4 py-20 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -165,7 +165,7 @@ export function BuildBreakSelector() {
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-white dark:bg-slate-950"
+      className="relative min-h-screen overflow-hidden bg-transparent"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -191,7 +191,7 @@ export function BuildBreakSelector() {
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
-                      className={`rounded-full bg-gradient-to-br ${path.color} p-8 shadow-xl flex items-center justify-center`}
+                      className={`rounded-full bg-linear-to-br ${path.color} p-8 shadow-xl flex items-center justify-center`}
                     >
                       {path.isImage ? (
                         <Image
@@ -225,7 +225,7 @@ export function BuildBreakSelector() {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`mt-6 rounded-full bg-gradient-to-r ${path.color} px-10 py-3 font-semibold text-white shadow-lg transition-shadow hover:shadow-xl`}
+                      className={`mt-6 rounded-full bg-linear-to-br ${path.color} px-10 py-3 font-semibold text-white shadow-lg transition-shadow hover:shadow-xl`}
                     >
                       Explore
                     </motion.div>
