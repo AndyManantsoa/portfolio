@@ -8,7 +8,11 @@ export function BuildBreakSelector() {
       className={styles.split}
       aria-label="Explore development or web pentesting"
     >
-      <Link data-cursor="build" href="/build" className={`${styles.side} ${styles.build}`}>
+      <Link
+        data-cursor="build"
+        href="/build"
+        className={`${styles.side} ${styles.build}`}
+      >
         <span className={styles.detail} aria-hidden="true">
           &lt;/&gt;
         </span>
@@ -19,7 +23,7 @@ export function BuildBreakSelector() {
             <span aria-hidden="true" className="text-2xl">
               <IoMdArrowDropleft />
             </span>
-            Explore projects{" "}
+            Let's build{" "}
           </span>
         </div>
         <span className={styles.arrow} aria-hidden="true">
@@ -35,16 +39,20 @@ export function BuildBreakSelector() {
         <span />
       </div>
 
-      <Link data-cursor="break" href="/break" className={`${styles.side} ${styles.break}`}>
+      <Link
+        data-cursor="break"
+        href="/break"
+        className={`${styles.side} ${styles.break}`}
+      >
         <span className={styles.detail} aria-hidden="true">
           <span className={styles.method}>GET</span> /api{" "}
           <span className={styles.protocol}>HTTP/1.1</span>
         </span>
         <div className={styles.content}>
           <h2 className={styles.heading}>BREAK</h2>
-          <p className={styles.subtitle}>Web Pentesting</p>
+          <p className={styles.subtitle}>Ethical Hacking</p>
           <span className={styles.cta}>
-            Explore security{" "}
+            Let's break{" "}
             <span aria-hidden="true" className="text-2xl">
               <IoMdArrowDropright />
             </span>
