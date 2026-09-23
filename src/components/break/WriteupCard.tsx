@@ -76,7 +76,7 @@ export function WriteupCard({ writeup, index = 0 }: WriteupCardProps) {
         )}
 
         <div className="mt-4 flex items-center justify-between">
-          <p className="text-xs text-slate-500">{formatDate(writeup.date)}</p>
+          <p className="text-xs text-slate-500">{writeup.date ? formatDate(writeup.date) : writeup.status}</p>
           <ArrowRight className="h-4 w-4 text-emerald-400 transition-transform group-hover:translate-x-1" />
         </div>
       </motion.div>

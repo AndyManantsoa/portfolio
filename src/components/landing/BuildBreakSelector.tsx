@@ -23,7 +23,7 @@ export function BuildBreakSelector() {
             <span aria-hidden="true" className="text-2xl">
               <IoMdArrowDropleft />
             </span>
-            Let's build{" "}
+            Let&apos;s build{" "}
           </span>
         </div>
         <span className={styles.arrow} aria-hidden="true">
@@ -50,9 +50,9 @@ export function BuildBreakSelector() {
         </span>
         <div className={styles.content}>
           <h2 className={styles.heading}>BREAK</h2>
-          <p className={styles.subtitle}>Ethical Hacking</p>
+          <p className={styles.subtitle}>Web Penetration Testing</p>
           <span className={styles.cta}>
-            Let's break{" "}
+            Let&apos;s break{" "}
             <span aria-hidden="true" className="text-2xl">
               <IoMdArrowDropright />
             </span>

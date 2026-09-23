@@ -42,16 +42,16 @@ export function LandingHero() {
             className="order-1 lg:order-2 space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <p className="text-sm font-semibold tracking-widest text-blue-600 dark:text-emerald-400">
+              <p className="text-sm font-mono font-medium tracking-widest text-blue-600 dark:text-emerald-400">
                 ABOUT ME
               </p>
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-6xl"
+              className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white lg:text-6xl"
             >
-              Hi, I'm Andy Manantsoa.
+              Hi, I&apos;m Andy Manantsoa.
             </motion.h1>
 
             <motion.p

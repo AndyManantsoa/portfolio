@@ -1,81 +1,14 @@
-"use client";
-
-import Link from "next/link";
-import { SiInstagram, SiGmail, SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa";
-
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      icon: SiGmail,
-      href: "mailto:andymanantsoa@myyahoo.com",
-      label: "Email",
-    },
-    {
-      icon: SiGithub,
-      href: "https://github.com/AndyManantsoa",
-      label: "GitHub",
-      target: "_blank",
-    },
-    {
-      icon: FaLinkedin,
-      href: "https://linkedin.com/in/AndyManantsoa",
-      label: "LinkedIn",
-      target: "_blank",
-    },
-    {
-      icon: SiInstagram,
-      href: "https://instagram.com/manantso_",
-      label: "Instagram",
-      target: "_blank",
-    },
-  ];
-
   return (
-    <footer className="relative border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/60 backdrop-blur-sm">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-around md:gap-12">
-          {/* About */}
-          <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-              Andy
-            </h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-              Fullstack Web/mobile Developer × Ethical Hacker
-            </p>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-              Connect
-            </h3>
-            <div className="mt-2 flex gap-4">
-              {socialLinks.map((link) => {
-                const Icon = link.icon;
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.target}
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-8 border-t border-slate-200 pt-8 text-center text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400">
-          <p>&copy; {currentYear} Andy. All rights reserved.</p>
-        </div>
+    <footer className="relative border-t border-white/10 text-sm text-slate-400">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-8">
+        <p className="font-medium text-slate-200">Andy Manantsoa</p>
+        <nav aria-label="Footer" className="flex flex-wrap gap-6">
+          <a className="hover:text-white" href="https://github.com/AndyManantsoa" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a className="hover:text-white" href="https://linkedin.com/in/AndyManantsoa" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a className="hover:text-white" href="mailto:andymanantsoa@myyahoo.com">Email</a>
+        </nav>
+        <p className="text-xs">© {new Date().getFullYear()} Andy.</p>
       </div>
     </footer>
   );

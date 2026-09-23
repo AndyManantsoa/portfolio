@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { LandingHero, BuildBreakSelector } from "@/components/landing/Hero";
 
+import { AboutSections } from "@/components/about/AboutSections";
+
 export const metadata: Metadata = {
   title: "Andy - Developer × Security Researcher",
   description:
@@ -12,6 +14,7 @@ export default function Home() {
     <>
       <LandingHero />
       <BuildBreakSelector />
+      <AboutSections />
     </>
   );
 }

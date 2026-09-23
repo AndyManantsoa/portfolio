@@ -1,33 +1,9 @@
 import type { Metadata } from "next";
-import { WriteupGrid } from "@/components/break/WriteupCard";
+import { SecurityWorkRows } from "@/components/break/SecurityWork";
 import { getAllWriteups } from "@/data/writeups";
+import styles from "@/components/portfolio/Portfolio.module.css";
 
-export const metadata: Metadata = {
-  title: "Writeups - BREAK",
-  description: "Security writeups, CTF solutions, and security research.",
-};
-
+export const metadata: Metadata = { title: "Writeups - BREAK", description: "Scoped security labs and learning outlines." };
 export default function WriteupsPage() {
-  const writeups = getAllWriteups();
-
-  return (
-    <div className="min-h-screen px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-emerald-400">Writeups</h1>
-          <p className="mt-4 text-lg text-slate-400">
-            Detailed writeups of security challenges, labs, and research.
-          </p>
-        </div>
-
-        {writeups.length > 0 ? (
-          <WriteupGrid writeups={writeups} />
-        ) : (
-          <div className="rounded-lg border-2 border-dashed border-emerald-700/50 bg-slate-950/50 p-12 text-center">
-            <p className="text-slate-400">Writeups coming soon.</p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  return <div className={`${styles.page} ${styles.break}`}><header className={styles.hero}><div className={styles.container}><p className={styles.eyebrow}>BREAK / WRITEUPS</p><h1 className={styles.heading}>Security learning notes.</h1><p className={styles.description}>Lab outlines; no completed findings or professional engagements are claimed.</p></div></header><section className={styles.section}><div className={styles.container}><SecurityWorkRows entries={getAllWriteups()} /></div></section></div>;
 }

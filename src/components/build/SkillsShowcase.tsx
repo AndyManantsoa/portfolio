@@ -7,7 +7,6 @@ import {
   Cloud,
   Code2,
   Server,
-  Bot,
   PanelsTopLeft,
 } from "lucide-react";
 import {
@@ -32,9 +31,6 @@ import {
   SiPostman,
   SiSupabase,
   SiPrisma,
-  SiAnthropic,
-  SiGithubcopilot,
-  SiCanvas,
   SiFigma,
   SiFastapi,
 } from "react-icons/si";
@@ -138,11 +134,7 @@ const toolingTags = [
   { name: "Postman", accent: "#ff6c37", icon: SiPostman },
   { name: "Supabase", accent: "#3ecf8e", icon: SiSupabase },
   { name: "Prisma", accent: "#5a67d8", icon: SiPrisma },
-  { name: "Claude", accent: "#d97757", icon: SiAnthropic },
-  { name: "Copilot", accent: "#a1a1aa", icon: SiGithubcopilot },
-  { name: "Canvas", accent: "#00c4cc", icon: SiCanvas },
   { name: "Figma", accent: "#f24e1e", icon: SiFigma },
-  { name: "ChatGPT", accent: "#22c55e", icon: Bot },
 ] as const;
 
 export function SkillsShowcase() {
@@ -156,7 +148,7 @@ export function SkillsShowcase() {
         </header>
         <SkillsPanel sections={skillSections} />
         <div className={styles.tooling}>
-          <h3 className={styles.panelTitle}>AI &amp; developer tooling</h3>
+          <h3 className={styles.panelTitle}>Developer tools</h3>
           <div className={styles.tags}>
             {toolingTags.map(({ name, icon: Icon }) => (
               <span key={name} className={styles.tag}><Icon aria-hidden="true" />{name}</span>

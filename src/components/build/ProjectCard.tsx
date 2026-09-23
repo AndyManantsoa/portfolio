@@ -30,20 +30,22 @@ export default function ProjectCard({
           {project.image ? (
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} website screenshot`}
               fill
               loading={eager ? "eager" : "lazy"}
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-contain"
             />
           ) : (
             <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
               <span className="text-3xl font-medium tracking-tight text-white">
                 {project.title}
               </span>
-              <span className="text-sm text-neutral-400">
-                Learning for children · Coming soon
+              <span className="font-mono text-xs tracking-widest text-neutral-400">
+                IN DEVELOPMENT
               </span>
+              <p className="text-sm text-neutral-400">{project.description}</p>
+              <span className="text-sm text-cyan-200">Coming soon →</span>
             </div>
           )}
 
@@ -59,6 +61,7 @@ export default function ProjectCard({
 
       {/* Project information */}
       <div className="mt-5">
+        {project.category && <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-neutral-400">{project.category}{project.year ? ` · ${project.year}` : ""}</p>}
         <div className="flex items-start justify-between gap-4">
           <div>
             <Link href={`/build/project/${project.slug}`}>
@@ -68,7 +71,7 @@ export default function ProjectCard({
             </Link>
 
             {project.status === "coming-soon" && (
-              <p className="mt-2 text-xs uppercase tracking-wider text-neutral-400">
+              <p className="mt-2 font-mono text-xs uppercase tracking-wider text-neutral-400">
                 Coming soon
               </p>
             )}

@@ -22,8 +22,8 @@ export const COLORS = {
 
 export const TYPOGRAPHY = {
   fontFamily: {
-    sans: 'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto',
-    mono: 'var(--font-geist-mono), "Courier New", monospace',
+    sans: 'var(--font-bricolage), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto',
+    mono: 'var(--font-ibm-plex-mono), "Courier New", monospace',
   },
   fontSize: {
     xs: "0.75rem",
@@ -71,9 +71,9 @@ export const Z_INDEX = {
 export const MICROCOPY = {
   landing: {
     hero: "Build it. Break it. Understand it.",
-    subtitle: "Web Developer × Ethical Hacker",
+    subtitle: "Software Developer × Web Pentester",
     description:
-      "I create web applications and understand how systems can be attacked, tested, and secured.",
+      "I build full-stack web applications and study how those same systems behave from an offensive-security perspective.",
   },
   build: {
     hero: "BUILD",
