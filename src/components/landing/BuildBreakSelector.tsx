@@ -62,6 +62,7 @@ export function BuildBreakSelector() {
           ↗
         </span>
       </Link>
+      <div className="my-20" aria-hidden="true"></div>
     </section>
   );
 }
