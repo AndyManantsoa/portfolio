@@ -53,6 +53,7 @@ export function ProfileImage() {
           src="/profile.jpg"
           alt="Andy's profile picture"
           fill
+          sizes="(min-width: 1152px) 512px, (min-width: 1024px) calc((100vw - 128px) / 2), (min-width: 480px) 448px, calc(100vw - 32px)"
           className="h-full w-full object-cover"
           priority
         />

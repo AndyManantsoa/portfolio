@@ -14,7 +14,7 @@ export default function ProjectShowcase() {
           <p className={styles.description}>A collection of applications, systems, and experiments I&apos;ve designed and developed.</p>
         </header>
         <div className={styles.projects}>
-          {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
+          {projects.map((project, index) => <ProjectCard key={project.slug} project={project} eager={index === 0} />)}
         </div>
         <div className={styles.tooling}>
           <Link href="/build/projects" className={styles.link}>View all projects <ArrowUpRight aria-hidden="true" /></Link>
