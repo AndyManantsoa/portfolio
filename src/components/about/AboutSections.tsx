@@ -1,4 +1,6 @@
-import { certifications, currently } from "@/data/about";
+import Link from "next/link";
+import { certifications } from "@/data/certifications";
+import { currently } from "@/data/about";
 import styles from "@/components/portfolio/Portfolio.module.css";
 
 export function AboutSections() {
@@ -58,6 +60,7 @@ export function AboutSections() {
           ) : (
             <p className={styles.description}>No certifications listed yet.</p>
           )}
+          <Link href="/break#certifications" className={styles.link}>View certifications →</Link>
         </div>
       </section>
     </div>

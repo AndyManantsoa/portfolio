@@ -3,5 +3,3 @@ export const currently = [
   { label: "Studying", value: "Web penetration testing" },
   { label: "Exploring", value: "Application security" },
 ];
-
-export const certifications: { title: string; issuer: string; year?: number; href?: string }[] = [];

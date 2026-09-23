@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/portfolio/Reveal";
 import { SkillsPanel } from "@/components/portfolio/SkillsPanel";
 import styles from "@/components/portfolio/Portfolio.module.css";
 import { SiPython, SiJavascript, SiGnubash, SiBurpsuite, SiWireshark, SiMetasploit, SiOwasp } from "react-icons/si";
@@ -124,9 +125,9 @@ export function SkillsShowcase() {
     <section className={styles.section} id="skills">
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.eyebrow}>BREAK / SKILLS</p>
-          <h2 className={styles.heading}>The security toolkit.</h2>
-          <p className={styles.description}>The techniques and tools I study and practice through web security research and labs.</p>
+          <Reveal delay={0}><p className={styles.eyebrow}>BREAK / SKILLS</p></Reveal>
+          <Reveal delay={0.1}><h2 className={styles.heading}>The security toolkit.</h2></Reveal>
+          <Reveal delay={0.2}><p className={styles.description}>The techniques and tools I study and practice through web security research and labs.</p></Reveal>
         </header>
         <SkillsPanel sections={skillSections} />
       </div>

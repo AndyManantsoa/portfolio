@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SiGithub } from "react-icons/si";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
@@ -16,12 +16,13 @@ export default function ProjectCard({
   project,
   eager = false,
 }: ProjectCardProps) {
+  const reduceMotion = useReducedMotion();
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: reduceMotion ? 0 : 0.7 }}
       className="group"
     >
       {/* Project image */}

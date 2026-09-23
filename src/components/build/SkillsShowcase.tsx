@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/portfolio/Reveal";
 import { SkillsPanel } from "@/components/portfolio/SkillsPanel";
 import styles from "@/components/portfolio/Portfolio.module.css";
 
@@ -142,19 +143,19 @@ export function SkillsShowcase() {
     <section className={styles.section} id="skills">
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.eyebrow}>BUILD / SKILLS</p>
-          <h2 className={styles.heading}>The development toolkit.</h2>
-          <p className={styles.description}>Languages, frameworks, and tools I use to turn ideas into working applications.</p>
+          <Reveal delay={0}><p className={styles.eyebrow}>BUILD / SKILLS</p></Reveal>
+          <Reveal delay={0.1}><h2 className={styles.heading}>The development toolkit.</h2></Reveal>
+          <Reveal delay={0.2}><p className={styles.description}>Languages, frameworks, and tools I use to turn ideas into working applications.</p></Reveal>
         </header>
         <SkillsPanel sections={skillSections} />
-        <div className={styles.tooling}>
+        <Reveal><div className={styles.tooling}>
           <h3 className={styles.panelTitle}>Developer tools</h3>
           <div className={styles.tags}>
             {toolingTags.map(({ name, icon: Icon }) => (
               <span key={name} className={styles.tag}><Icon aria-hidden="true" />{name}</span>
             ))}
           </div>
-        </div>
+        </div></Reveal>
       </div>
     </section>
   );
