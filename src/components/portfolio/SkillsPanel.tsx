@@ -38,7 +38,7 @@ export function SkillsPanel({ sections }: { sections: readonly Section[] }) {
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.05 }}>
+              transition={{ duration: reduceMotion ? 0 : 1, delay: reduceMotion ? 0 : index * 0.15, ease: "easeInOut" }}>
               <span className={styles.icon} aria-hidden="true">{card.icon}</span>
               <span className={styles.skillName}>{card.name}</span>
             </motion.div>
