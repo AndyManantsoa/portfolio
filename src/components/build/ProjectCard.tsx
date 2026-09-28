@@ -22,7 +22,7 @@ export default function ProjectCard({
       initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: reduceMotion ? 0 : 0.7 }}
+      transition={{ duration: reduceMotion ? 0 : 1, ease: "easeInOut" }}
       className="group"
     >
       {/* Project image */}
